@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🤍 Happy 20th Birthday My Love 🤍</title>
+
+    <!-- ============================================
+         Google Fonts
+         - Playfair Display: สำหรับหัวข้อ (serif หรู)
+         - Prompt: สำหรับเนื้อหาภาษาไทย
+         ============================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ============================================
+         Font Awesome 6 - ไอคอนต่าง ๆ
+         ============================================ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- ============================================
+         Swiper.js 11 - สไลด์รูปภาพ
+         ============================================ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- ============================================
+         CSS Styles (แยกไฟล์เป็น css/style.css ได้)
+         ============================================ -->
+    <style>
+    /* ================================================================
+       1. CSS CUSTOM PROPERTIES
+       ปรับแต่งธีมสีที่นี่
+       ================================================================ */
+    :root {
+        /* สีหลัก */
+        --white: #FFFFFF;
+        --pink-light: #FFD6E0;
+        --pink-soft: #FFE4EC;
+        --pink: #FF8FAB;
+        --pink-dark: #E8587A;
+        --black: #1A1A1A;
+        --bg-dark: #0A0A0A;
+
+        /* สีทอง */
+        --gold: #D4A843;
+        --gold-light: #F0D78C;
+
+        /* Glassmorphism */
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --glass-bg-pink: rgba(255, 143, 171, 0.06);
+        --glass-border-pink: rgba(255, 143, 171, 0.18);
+        --glass-bg-gold: rgba(212, 168, 67, 0.06);
+        --glass-border-gold: rgba(212, 168, 67, 0.18);
+
+        /* Shadow */
+        --shadow-pink: 0 8px 40px rgba(255, 143, 171, 0.2);
+        --shadow-gold: 0 8px 40px rgba(212, 168, 67, 0.15);
+        --shadow-dark: 0 8px 40px rgba(0, 0, 0, 0.4);
+
+        /* Transition */
+        --transition-fast: 0.2s ease;
+        --transition-normal: 0.3s ease;
+        --transition-slow: 0.6s ease;
+    }
+
+    /* ================================================================
+       2. RESET & BASE
+       ================================================================ */
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        font-family: 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-dark);
+        color: var(--white);
+        overflow-x: hidden;
+        min-height: 100vh;
+        -webkit-tap-highlight-color: transparent;
+        line-height: 1.6;
+    }
+
+    /* ซ่อน scrollbar แต่ยังเลื่อนได้ */
+    body::-webkit-scrollbar {
+        width: 0;
+        display: none;
+    }
+
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* ================================================================
+       3. BACKGROUND AMBIENT
+       พื้นหลัง gradient ชมพู-ทอง ลอยเคลื่อน
+       ================================================================ */
+    .ambient-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .ambient-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.4;
+        animation: ambient-drift 20s ease-in-out infinite alternate;
+    }
+
+    .ambient-orb:nth-child(1) {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(255, 143, 171, 0.25), transparent 70%);
+        top: -10%;
+        left: -10%;
+        animation-duration: 25s;
+    }
+
+    .ambient-orb:nth-child(2) {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(212, 168, 67, 0.2), transparent 70%);
+        top: 40%;
+        right: -10%;
+        animation-duration: 22s;
+        animation-delay: -5s;
+    }
+
+    .ambient-orb:nth-child(3) {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255, 214, 224, 0.15), transparent 70%);
+        bottom: -10%;
+        left: 30%;
+        animation-duration: 28s;
+        animation-delay: -10s;
+    }
+
+    .ambient-orb:nth-child(4) {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, rgba(240, 215, 140, 0.12), transparent 70%);
+        top: 60%;
+        left: 10%;
+        animation-duration: 30s;
+        animation-delay: -15s;
+    }
+
+    @keyframes ambient-drift {
+        0%   { transform: translate(0, 0) scale(1); }
+        25%  { transform: translate(30px, -40px) scale(1.1); }
+        50%  { transform: translate(-20px, 30px) scale(0.95); }
+        75%  { transform: translate(40px, 20px) scale(1.05); }
+        100% { transform: translate(-30px, -20px) scale(1); }
+    }
+
+    /* ================================================================
+       4. SCROLL PROGRESS BAR
+       แถบแสดงความคืบหน้าการเลื่อน
+       ================================================================ */
+    #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--pink), var(--gold), var(--pink));
+        z-index: 9999;
+        transition: width 0.1s linear;
+        box-shadow: 0 0 10px rgba(255, 143, 171, 0.5);
+    }
+
+    /* ================================================================
+       5. WELCOME SCREEN
+       หน้าต้อนรับแบบ Fullscreen
+       ================================================================ */
+    #welcome-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg-dark);
+        transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #welcome-screen.hidden {
+        opacity: 0;
+        transform: scale(1.08);
+        pointer-events: none;
+    }
+
+    /* หัวใจลอยบนหน้าต้อนรับ */
+    .welcome-hearts-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    .welcome-heart {
+        position: absolute;
+        pointer-events: none;
+        opacity: 0;
+        animation: welcome-float linear infinite;
+    }
+
+    @keyframes welcome-float {
+        0% {
+            opacity: 0;
+            transform: translateY(0) rotate(0deg) scale(0.3);
+        }
+        10% {
+            opacity: 0.5;
+        }
+        80% {
+            opacity: 0.15;
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-110vh) rotate(360deg) scale(1);
+        }
+    }
+
+    /* เนื้อหาหน้าต้อนรับ */
+    .welcome-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 2rem;
+        max-width: 500px;
+    }
+
+    /* ไอคอนหัวใจด้านบน */
+    .welcome-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        animation: pulse-heart 2s ease-in-out infinite;
+        filter: drop-shadow(0 0 20px rgba(255, 143, 171, 0.4));
+    }
+
+    @keyframes pulse-heart {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    /* ข้อความหลัก */
+    .welcome-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.8rem, 7vw, 3.2rem);
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.3;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 60px rgba(255, 143, 171, 0.3);
+        animation: title-glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes title-glow {
+        0%   { text-shadow: 0 0 60px rgba(255, 143, 171, 0.2); }
+        100% { text-shadow: 0 0 80px rgba(255, 143, 171, 0.4); }
+    }
+
+    .welcome-subtitle {
+        font-size: clamp(0.85rem, 3vw, 1rem);
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 3rem;
+        font-weight: 300;
+        letter-spacing: 0.08em;
+        animation: fadeInUp 1s ease 0.5s both;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ปุ่มเปิดเซอร์ไพรส์ */
+    .btn-surprise {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1.1rem 2.5rem;
+        background: linear-gradient(135deg, var(--pink-dark), var(--pink));
+        color: var(--white);
+        border: none;
+        border-radius: 50px;
+        font-family: 'Prompt', sans-serif;
+        font-size: 1.05rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all var(--transition-normal);
+        box-shadow: 0 4px 30px rgba(255, 143, 171, 0.35);
+        position: relative;
+        overflow: hidden;
+        animation: fadeInUp 1s ease 1s both;
+    }
+
+    /* เอฟเฟกต์แสงไล่บนปุ่ม */
+    .btn-surprise::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .btn-surprise:hover::before,
+    .btn-surprise:active::before {
+        left: 100%;
+    }
+
+    .btn-surprise:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 50px rgba(255, 143, 171, 0.5);
+    }
+
+    .btn-surprise:active {
+        transform: translateY(0) scale(0.97);
+    }
+
+    /* Ripple effect */
+    .btn-surprise .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(0);
+        animation: ripple-effect 0.6s linear;
+        pointer-events: none;
+    }
+
+    @keyframes ripple-effect {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+
+    /* ================================================================
+       6. FLOATING HEARTS (ทั่วทั้งหน้า)
+       ================================================================ */
+    .floating-heart {
+        position: fixed;
+        z-index: 998;
+        pointer-events: none;
+        opacity: 0;
+        animation: floatHeart linear forwards;
+        filter: drop-shadow(0 0 4px currentColor);
+    }
+
+    @keyframes floatHeart {
+        0% {
+            opacity: 0;
+            transform: translateY(0) rotate(0deg) scale(0.3);
+        }
+        8% {
+            opacity: 0.55;
+        }
+        85% {
+            opacity: 0.1;
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-105vh) rotate(360deg) scale(1);
+        }
+    }
+
+    /* ================================================================
+       7. MAIN CONTENT
+       ================================================================ */
+    #main-content {
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 1s ease 0.5s;
+    }
+
+    #main-content.visible {
+        opacity: 1;
+    }
+
+    .section {
+        padding: 4rem 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* ================================================================
+       8. SECTION TITLES
+       ================================================================ */
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 0.75rem;
+        color: var(--white);
+    }
+
+    .section-title span {
+        color: var(--gold);
+    }
+
+    .section-subtitle {
+        text-align: center;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.35);
+        margin-bottom: 2rem;
+        font-weight: 300;
+    }
+
+    /* ================================================================
+       9. GLASS CARD (Glassmorphism)
+       ================================================================ */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: transform var(--transition-normal),
+                    box-shadow var(--transition-normal);
+    }
+
+    /* เส้นไล่สีด้านบนการ์ด */
+    .glass-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    }
+
+    /* เรืองแสงด้านล่าง */
+    .glass-card::after {
+        content: '';
+        position: absolute;
+        bottom: -50%;
+        left: 10%;
+        right: 10%;
+        height: 50%;
+        background: radial-gradient(ellipse, rgba(255, 143, 171, 0.05), transparent 70%);
+        pointer-events: none;
+    }
+
+    .glass-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* สีชมพู */
+    .glass-card-pink {
+        background: var(--glass-bg-pink);
+        border-color: var(--glass-border-pink);
+    }
+
+    .glass-card-pink::before {
+        background: linear-gradient(90deg, transparent, rgba(255, 143, 171, 0.4), transparent);
+    }
+
+    .glass-card-pink::after {
+        background: radial-gradient(ellipse, rgba(255, 143, 171, 0.08), transparent 70%);
+    }
+
+    /* สีทอง */
+    .glass-card-gold {
+        background: var(--glass-bg-gold);
+        border-color: var(--glass-border-gold);
+    }
+
+    .glass-card-gold::before {
+        background: linear-gradient(90deg, transparent, rgba(212, 168, 67, 0.4), transparent);
+    }
+
+    .glass-card-gold::after {
+        background: radial-gradient(ellipse, rgba(212, 168, 67, 0.08), transparent 70%);
+    }
+
+    /* ================================================================
+       10. TYPEWRITER SECTION
+       ================================================================ */
+    #typewriter-section {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 6rem;
+    }
+
+    .typewriter-text {
+        font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+        line-height: 2;
+        color: rgba(255, 255, 255, 0.88);
+        font-weight: 300;
+        text-align: center;
+        min-height: 200px;
+        word-wrap: break-word;
+    }
+
+    .typewriter-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1.2em;
+        background: var(--pink);
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        animation: blink 0.8s infinite;
+        box-shadow: 0 0 8px rgba(255, 143, 171, 0.5);
+    }
+
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }
+
+    /* ================================================================
+       11. GALLERY SECTION (Swiper Coverflow)
+       ================================================================ */
+    .gallery-swiper {
+        width: 100%;
+        padding-bottom: 3.5rem !important;
+        padding-top: 1.5rem !important;
+        overflow: visible !important;
+    }
+
+    .gallery-swiper .swiper-slide {
+        width: 260px;
+        height: 360px;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: var(--shadow-dark);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .gallery-swiper .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-swiper .swiper-slide:hover img {
+        transform: scale(1.05);
+    }
+
+    .gallery-swiper .swiper-slide-active {
+        box-shadow: var(--shadow-pink);
+    }
+
+    /* หมายเลขรูป */
+    .gallery-slide-number {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: 500;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* ไอคอนซูม */
+    .gallery-slide-zoom {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.7rem;
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .gallery-swiper .swiper-slide:hover .gallery-slide-zoom {
+        opacity: 1;
+    }
+
+    /* Pagination */
+    .gallery-swiper .swiper-pagination-bullet {
+        background: var(--pink);
+        opacity: 0.3;
+        width: 8px;
+        height: 8px;
+        transition: all var(--transition-normal);
+    }
+
+    .gallery-swiper .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: var(--pink);
+        width: 24px;
+        border-radius: 4px;
+    }
+
+    /* ================================================================
+       12. VIDEO SECTION
+       ================================================================ */
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+        background: var(--glass-bg);
+        box-shadow: var(--shadow-dark);
+    }
+
+    .video-wrapper video {
+        width: 100%;
+        display: block;
+        border-radius: 20px;
+        outline: none;
+    }
+
+    /* Placeholder สำหรับเมื่อยังไม่มีวิดีโอ */
+    .video-placeholder {
+        width: 100%;
+        aspect-ratio: 16/9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(255, 143, 171, 0.05), rgba(212, 168, 67, 0.05));
+        color: rgba(255, 255, 255, 0.4);
+        gap: 1rem;
+        border-radius: 20px;
+    }
+
+    .video-placeholder i {
+        font-size: 3rem;
+        color: var(--pink);
+        opacity: 0.5;
+        animation: pulse-heart 2s ease-in-out infinite;
+    }
+
+    .video-placeholder p {
+        font-size: 0.85rem;
+    }
+
+    /* ================================================================
+       13. MEMORIES SECTION
+       ================================================================ */
+    .memories-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .memory-card {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        cursor: pointer;
+    }
+
+    .memory-card:active {
+        transform: scale(0.97);
+    }
+
+    .memory-card img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+
+    .memory-card:hover img {
+        transform: scale(1.05);
+    }
+
+    .memory-card .memory-caption {
+        padding: 0.75rem;
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    /* การ์ดใหญ่อันแรก (span 2 คอลัมน์) */
+    .memory-card:first-child {
+        grid-column: span 2;
+    }
+
+    .memory-card:first-child img {
+        aspect-ratio: 16/9;
+    }
+
+    /* ไอคอนซูม */
+    .memory-card .memory-zoom {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 28px;
+        height: 28px;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.6rem;
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+    }
+
+    .memory-card:hover .memory-zoom {
+        opacity: 1;
+    }
+
+    /* ================================================================
+       14. COUNTER SECTION
+       ================================================================ */
+    .counter-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .counter-item {
+        text-align: center;
+        min-width: 70px;
+    }
+
+    .counter-number {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2rem, 7vw, 3rem);
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+        transition: transform 0.3s ease;
+    }
+
+    .counter-number.tick {
+        transform: scale(1.1);
+    }
+
+    .counter-label {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .counter-separator {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        color: var(--pink);
+        margin-top: 0.15rem;
+        opacity: 0.5;
+        animation: blink 1.5s ease-in-out infinite;
+    }
+
+    /* ข้อความใต้ Counter */
+    .counter-message {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.4);
+        font-style: italic;
+    }
+
+    /* ================================================================
+       15. CLOSING SECTION
+       ================================================================ */
+    #closing-section {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 6rem;
+    }
+
+    .closing-text {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.1rem, 4vw, 1.6rem);
+        line-height: 2;
+        color: var(--white);
+        font-weight: 400;
+    }
+
+    .closing-text .highlight {
+        color: var(--gold);
+        font-style: italic;
+        font-size: 1.3em;
+        text-shadow: 0 0 30px rgba(212, 168, 67, 0.3);
+    }
+
+    .closing-text .pink {
+        color: var(--pink);
+    }
+
+    /* ไอคอนหัวใจท้าย */
+    .closing-hearts {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .closing-hearts span {
+        animation: pulse-heart 2s ease-in-out infinite;
+        display: inline-block;
+    }
+
+    .closing-hearts span:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+
+    .closing-hearts span:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+    /* ================================================================
+       16. FULLSCREEN IMAGE VIEWER
+       ================================================================ */
+    #fullscreen-viewer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.96);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity var(--transition-normal), visibility var(--transition-normal);
+    }
+
+    #fullscreen-viewer.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #fullscreen-viewer img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 12px;
+        transform: scale(0.9);
+        transition: transform var(--transition-slow);
+    }
+
+    #fullscreen-viewer.active img {
+        transform: scale(1);
+    }
+
+    .viewer-close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background var(--transition-fast), transform var(--transition-fast);
+        z-index: 10;
+    }
+
+    .viewer-close-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+    }
+
+    /* ตัวเลขรูป */
+    .viewer-counter {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: white;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* ปุ่มเลื่อนรูป */
+    .viewer-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background var(--transition-fast);
+    }
+
+    .viewer-nav:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .viewer-prev {
+        left: 1rem;
+    }
+
+    .viewer-next {
+        right: 1rem;
+    }
+
+    /* ================================================================
+       17. FLOATING BUTTONS
+       ================================================================ */
+    #floating-buttons {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1rem;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        pointer-events: none;
+    }
+
+    #floating-buttons.visible {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+
+    .float-btn {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid var(--glass-border);
+        background: rgba(10, 10, 10, 0.75);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        color: var(--white);
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all var(--transition-normal);
+        position: relative;
+    }
+
+    .float-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .float-btn:active {
+        transform: scale(0.9);
+    }
+
+    .float-btn.active {
+        background: linear-gradient(135deg, var(--pink-dark), var(--pink));
+        border-color: var(--pink);
+        box-shadow: 0 4px 20px rgba(255, 143, 171, 0.3);
+    }
+
+    .float-btn .tooltip {
+        position: absolute;
+        right: 56px;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 8px;
+        font-size: 0.7rem;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition-fast);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .float-btn:hover .tooltip {
+        opacity: 1;
+    }
+
+    /* ================================================================
+       18. FIREWORKS CANVAS
+       ================================================================ */
+    #fireworks-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        pointer-events: none;
+    }
+
+    /* ================================================================
+       19. CONFETTI CANVAS
+       ================================================================ */
+    #confetti-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 998;
+        pointer-events: none;
+    }
+
+    /* ================================================================
+       20. SCROLL REVEAL
+       ================================================================ */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ================================================================
+       21. DECORATIVE ELEMENTS
+       ================================================================ */
+    .divider {
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--pink), var(--gold));
+        margin: 0 auto 2rem;
+        border-radius: 2px;
+    }
+
+    .gold-line {
+        width: 80%;
+        max-width: 400px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        margin: 0 auto;
+        opacity: 0.15;
+    }
+
+    .sparkle {
+        display: inline-block;
+        animation: sparkle 1.5s ease-in-out infinite;
+    }
+
+    @keyframes sparkle {
+        0%, 100% { opacity: 0.3; transform: scale(0.8); }
+        50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* ================================================================
+       22. TOAST NOTIFICATION
+       ================================================================ */
+    .toast {
+        position: fixed;
+        bottom: 5rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-size: 0.82rem;
+        z-index: 3000;
+        opacity: 0;
+        transition: all var(--transition-normal);
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    /* ================================================================
+       23. RESPONSIVE
+       ================================================================ */
+    @media (min-width: 768px) {
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .memories-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .memory-card:first-child {
+            grid-column: span 3;
+        }
+
+        .gallery-swiper .swiper-slide {
+            width: 300px;
+            height: 400px;
+        }
+
+        .counter-container {
+            gap: 1.5rem;
+        }
+
+        .glass-card {
+            padding: 2.5rem;
+        }
+
+        .floating-heart {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .gallery-swiper .swiper-slide {
+            width: 340px;
+            height: 440px;
+        }
+
+        .section {
+            padding: 6rem 2rem;
+        }
+    }
+
+    /* ================================================================
+       24. ACCESSIBILITY
+       ================================================================ */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+
+    /* Focus visible */
+    button:focus-visible,
+    a:focus-visible {
+        outline: 2px solid var(--pink);
+        outline-offset: 2px;
+    }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         Scroll Progress Bar
+         ============================================ -->
+    <div id="scroll-progress"></div>
+
+    <!-- ============================================
+         Ambient Background
+         พื้นหลัง gradient ลอยเคลื่อน
+         ============================================ -->
+    <div class="ambient-bg">
+        <div class="ambient-orb"></div>
+        <div class="ambient-orb"></div>
+        <div class="ambient-orb"></div>
+        <div class="ambient-orb"></div>
+    </div>
+
+    <!-- ============================================
+         Welcome Screen
+         หน้าต้อนรับแบบ Fullscreen
+         ============================================ -->
+    <div id="welcome-screen">
+        <!-- หัวใจลอยบนหน้าต้อนรับ -->
+        <div class="welcome-hearts-container" id="welcome-hearts"></div>
+
+        <div class="welcome-content">
+            <div class="welcome-icon">🤍</div>
+            <h1 class="welcome-title">Happy 20th Birthday<br>My Love</h1>
+            <p class="welcome-subtitle">มีเซอร์ไพรส์พิเศษรอคุณอยู่...</p>
+            <button class="btn-surprise" id="btn-surprise" aria-label="เปิดเซอร์ไพรส์">
+                <i class="fas fa-gift"></i>
+                เปิดเซอร์ไพรส์
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Main Content
+         เนื้อหาหลักของเว็บไซต์
+         ============================================ -->
+    <main id="main-content">
+
+        <!-- ====== Typewriter Section ====== -->
+        <section id="typewriter-section" class="section">
+            <div class="glass-card glass-card-pink">
+                <p id="typewriter-text" class="typewriter-text"></p>
+                <span id="typewriter-cursor" class="typewriter-cursor"></span>
+            </div>
+        </section>
+
+        <div class="gold-line"></div>
+
+        <!-- ====== Gallery Section ====== -->
+        <section id="gallery-section" class="section">
+            <h2 class="section-title reveal">Our<span>Photo</span></h2>
+            <div class="divider reveal"></div>
+
+            <div class="swiper gallery-swiper reveal">
+                <div class="swiper-wrapper" id="gallery-wrapper">
+                    <!-- รูปภาพจะถูกสร้างด้วย JS -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <div class="gold-line"></div>
+
+        <!-- ====== Video Section ====== -->
+        <section id="video-section" class="section">
+            <h2 class="section-title reveal">Special <span>Video</span></h2>
+            <div class="divider reveal"></div>
+
+            <div class="video-wrapper reveal">
+                <!--
+                    🔧 เปลี่ยน src เป็นไฟล์วิดีโอของคุณ
+                    เช่น <source src="video/birthday.mp4" type="video/mp4">
+                -->
+                <video id="birthday-video" controls playsinline preload="metadata" poster="images/1783869086933.jpg">
+                    <source src="c:\Users\User\OneDrive\Pictures\me\ฟิดาล\lv_7568871476208602373_20260730140149.mp4" type="video/mp4">
+                </video>
+                <!--
+                    ถ้ายังไม่มีวิดีโอ ให้ลบ <video> ด้านบนออก
+                    แล้วเอา comment ด้านล่างออก
+                -->
+                <!--
+                <div class="video-placeholder">
+                    <i class="fas fa-film"></i>
+                    <p>เพิ่มวิดีโอของคุณที่นี่</p>
+                </div>
+                -->
+            </div>
+        </section>
+
+        <div class="gold-line"></div>
+
+        <!-- ====== Memories Section ====== -->
+        <section id="memories-section" class="section">
+            <h2 class="section-title reveal">Our <span>Memories</span></h2>
+            <div class="divider reveal"></div>
+
+            <div class="memories-grid reveal" id="memories-grid">
+                <!-- ความทรงจำจะถูกสร้างด้วย JS -->
+            </div>
+        </section>
+
+        <div class="gold-line"></div>
+
+      
+
+        <div class="gold-line"></div>
+
+        <!-- ====== Closing Section ====== -->
+        <section id="closing-section" class="section">
+            <div class="glass-card glass-card-pink reveal">
+                <p class="closing-text">
+                    <span class="highlight">∞</span> I will choose you over and over again.<br><br>
+                    Happy 20th Birthday <span class="pink">🤍</span><br><br>
+                    I Love You <span class="pink">Forever.</span>
+                </p>
+                <div class="closing-hearts">
+                    <span>🤍</span>
+                    <span>💕</span>
+                    <span>🤍</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         Fullscreen Image Viewer
+         แตะรูปเพื่อดูเต็มจอ
+         ============================================ -->
+    <div id="fullscreen-viewer">
+        <button class="viewer-close-btn" id="viewer-close" aria-label="ปิด">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="viewer-nav viewer-prev" id="viewer-prev" aria-label="รูปก่อนหน้า">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="viewer-nav viewer-next" id="viewer-next" aria-label="รูปถัดไป">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <img id="fullscreen-img" src="" alt="ดูรูปเต็มจอ">
+        <div class="viewer-counter" id="viewer-counter"></div>
+    </div>
+
+    <!-- ============================================
+         Fireworks Canvas
+         ============================================ -->
+    <canvas id="fireworks-canvas"></canvas>
+
+    <!-- ============================================
+         Confetti Canvas
+         ============================================ -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- ============================================
+         Floating Buttons
+         ============================================ -->
+    <div id="floating-buttons">
+        <button class="float-btn" id="btn-music" aria-label="เปิด/ปิดเพลง">
+            <i class="fas fa-music"></i>
+            <span class="tooltip">เปิด/ปิดเพลง</span>
+        </button>
+        <button class="float-btn" id="btn-video" aria-label="เล่นวิดีโอ">
+            <i class="fas fa-play"></i>
+            <span class="tooltip">เล่นวิดีโอ</span>
+        </button>
+        <button class="float-btn" id="btn-share" aria-label="แชร์">
+            <i class="fas fa-share-alt"></i>
+            <span class="tooltip">แชร์</span>
+        </button>
+        <button class="float-btn" id="btn-top" aria-label="กลับขึ้นบน">
+            <i class="fas fa-chevron-up"></i>
+            <span class="tooltip">กลับขึ้นบน</span>
+        </button>
+    </div>
+
+    <!-- ============================================
+         Toast Notification
+         ============================================ -->
+    <div id="toast" class="toast"></div>
+
+    <!-- ============================================
+         Background Music
+         🔧 เปลี่ยน src เป็นไฟล์เพลงของคุณ
+         ============================================ -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="c:\Users\User\OneDrive\Desktop\WANG LIN\ViVii - Love Love Love - piximory (youtube).mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ============================================
+         Swiper.js
+         ============================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- ============================================
+         JavaScript (แยกไฟล์เป็น js/script.js ได้)
+         ============================================ -->
+    <script>
+    /* ================================================================
+       ================================================================
+       BIRTHDAY SURPRISE - MAIN SCRIPT
+       ================================================================
+       ================================================================ */
+
+    /* ================================================================
+       1. CONFIGURATION
+       🔧 แก้ไขค่าต่าง ๆ ที่นี่
+       ================================================================ */
+
+    // วันที่เริ่มคบกัน (ปี-เดือน-วินาที)
+    const RELATIONSHIP_START = new Date('2023-01-01T00:00:00');
+
+    // ข้อความ Typewriter
+    const TYPEWRITER_MESSAGE = 'สุขสันต์วันเกิดนะคนเก่งของเค้า 🤍\nวันนี้เธออายุ 20 ปีแล้ว ขอให้ปีนี้เป็นปีที่ดีที่สุดของเธอ ขอให้มีแต่ความสุข สุขภาพแข็งแรง ประสบความสำเร็จในทุกสิ่งที่ตั้งใจ ขอบคุณที่เข้ามาเป็นความสุขของเค้า ขอบคุณที่อยู่เคียงข้างกันเสมอ ถึงจะมีวันที่เรางอนกันหรือเข้าใจกันผิด แต่เค้าก็ยังเลือกเธอทุกวัน และจะรักเธอไปเรื่อย ๆ หวังว่าเราจะได้สร้างความทรงจำดี ๆ ด้วยกันอีกเยอะเลยนะ รักเธอที่สุด 🤍';
+
+    // รูปภาพแกลเลอรี่ (20 รูป)
+    // 🔧 เปลี่ยน URL เป็นรูปของคุณ เช่น 'images/gallery/1.jpg'
+    const GALLERY_IMAGES = [
+        { src: 'images/1747189043191.jpg', alt: 'รูปที่ 1' },
+        { src: 'images/2d52435acbab4c91b531dc5e6c8bc499_0.jpeg', alt: 'รูปที่ 2' },
+        { src: 'images/1747189042960.jpg', alt: 'รูปที่ 3' },
+        { src: 'images/1747318312253.jpg', alt: 'รูปที่ 4' },
+        { src: 'images/1747576163332.jpg', alt: 'รูปที่ 5' },
+        { src: 'images/1757399336721.jpg', alt: 'รูปที่ 6' },
+        { src: 'images/1780852020739.jpg', alt: 'รูปที่ 7' },
+        { src: 'images/1780852068155.jpg', alt: 'รูปที่ 8' },
+        { src: 'images/1780852078406.jpg', alt: 'รูปที่ 9' },
+        { src: 'images/1782400713582.jpg', alt: 'รูปที่ 10' },
+        { src: 'images/1782401530702.jpg', alt: 'รูปที่ 11' },
+        { src: 'images/1783306468894.jpg', alt: 'รูปที่ 12' },
+        { src: 'images/1783869068063.jpg', alt: 'รูปที่ 13' },
+        { src: 'images/1783869069551.jpg', alt: 'รูปที่ 14' },
+        { src: 'images/1783869069978.jpg', alt: 'รูปที่ 15' },
+        { src: 'images/1783869070682.jpg', alt: 'รูปที่ 16' },
+        { src: 'images/1783869177714.jpg', alt: 'รูปที่ 17' },
+        { src: 'images/1783869177799.jpg', alt: 'รูปที่ 18' },
+        { src: 'images/1783869178298.jpg', alt: 'รูปที่ 19' },
+        { src: 'images/1774257719611.jpg', alt: 'รูปที่ 20' },
+    ];
+
+    // ความทรงจำ (รูป + คำบรรยาย)
+    // 🔧 เปลี่ยน URL เป็นรูปของคุณ
+    const MEMORIES = [
+        { src: 'images/1780107272091.jpg', caption: 'ทุกครั้งที่อยู่กับเธอ คือความสุขของเค้า 🤍' },
+{ src: 'images/1783869086933.jpg', caption: 'รอยยิ้มของเธอ ทำให้ทุกวันพิเศษเสมอ 😊' },
+{ src: 'images/1733833684751.jpg', caption: 'อีกหนึ่งความทรงจำที่เค้าไม่มีวันลืม 🌊' },
+{ src: 'images/1774257727134.jpg', caption: 'ขอบคุณที่เดินเคียงข้างกันมาตลอด ✨' },
+{ src: 'images/1774257724083.jpg', caption: 'ไม่ว่าจะผ่านไปกี่วัน เค้าก็ยังเลือกเธอเสมอ ❤️' },
+{ src: 'images/1743528298875.jpg', caption: 'สุขสันต์วันเกิดนะคนเก่งของเค้า รักเธอที่สุด 🎂💖' },
+    ];
+
+    // รวมรูปทั้งหมดสำหรับ Fullscreen Viewer
+    const ALL_IMAGES = [
+        ...GALLERY_IMAGES.map(g => g.src),
+        ...MEMORIES.map(m => m.src)
+    ];
+
+    /* ================================================================
+       2. DOM ELEMENTS
+       ================================================================ */
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const mainContent = document.getElementById('main-content');
+    const btnSurprise = document.getElementById('btn-surprise');
+    const bgMusic = document.getElementById('bg-music');
+    const floatingButtons = document.getElementById('floating-buttons');
+    const fullscreenViewer = document.getElementById('fullscreen-viewer');
+    const fullscreenImg = document.getElementById('fullscreen-img');
+    const viewerCounter = document.getElementById('viewer-counter');
+    const fireworksCanvas = document.getElementById('fireworks-canvas');
+    const fCtx = fireworksCanvas.getContext('2d');
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    const cCtx = confettiCanvas.getContext('2d');
+    const toastEl = document.getElementById('toast');
+    const scrollProgress = document.getElementById('scroll-progress');
+
+    /* ================================================================
+       3. UTILITY FUNCTIONS
+       ================================================================ */
+
+    // แสดง Toast Notification
+    let toastTimeout = null;
+    function showToast(message) {
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastEl.textContent = message;
+        toastEl.classList.add('show');
+        toastTimeout = setTimeout(() => {
+            toastEl.classList.remove('show');
+        }, 3000);
+    }
+
+    // สร้างตัวเลขสุ่มในช่วง
+    function randomRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    /* ================================================================
+       4. WELCOME SCREEN HEARTS
+       สร้างหัวใจลอยบนหน้าต้อนรับ
+       ================================================================ */
+    function createWelcomeHearts() {
+        const container = document.getElementById('welcome-hearts');
+        const hearts = ['♥', '♡', '❤', '🤍'];
+        const colors = ['#FF8FAB', '#FFD6E0', '#E8587A', '#D4A843', '#F0D78C', '#FFFFFF'];
+
+        for (let i = 0; i < 18; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('welcome-heart');
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+            const size = Math.random() * 1.5 + 0.6;
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.bottom = '-5%';
+            heart.style.fontSize = size + 'rem';
+            heart.style.animationDuration = (Math.random() * 6 + 6) + 's';
+            heart.style.animationDelay = (Math.random() * 5) + 's';
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+            container.appendChild(heart);
+        }
+    }
+
+    createWelcomeHearts();
+
+    /* ================================================================
+       5. BUILD GALLERY SLIDES
+       สร้างสไลด์รูปภาพจาก config
+       ================================================================ */
+    function buildGallery() {
+        const wrapper = document.getElementById('gallery-wrapper');
+        const total = GALLERY_IMAGES.length;
+
+        GALLERY_IMAGES.forEach((img, index) => {
+            const slide = document.createElement('div');
+            slide.classList.add('swiper-slide', 'gallery-slide');
+            slide.setAttribute('data-index', index);
+            slide.setAttribute('data-src', img.src);
+
+            slide.innerHTML = `
+                <img src="${img.src}" alt="${img.alt}" loading="lazy">
+                <span class="gallery-slide-number">${index + 1} / ${total}</span>
+                <span class="gallery-slide-zoom"><i class="fas fa-search-plus"></i></span>
+            `;
+
+            // แตะเพื่อดูเต็มจอ
+            slide.addEventListener('click', () => {
+                openFullscreen(img.src);
+            });
+
+            wrapper.appendChild(slide);
+        });
+    }
+
+    buildGallery();
+
+    /* ================================================================
+       6. BUILD MEMORIES GRID
+       สร้างการ์ดความทรงจำจาก config
+       ================================================================ */
+    function buildMemories() {
+        const grid = document.getElementById('memories-grid');
+
+        MEMORIES.forEach((memory, index) => {
+            const card = document.createElement('div');
+            card.classList.add('memory-card');
+
+            card.innerHTML = `
+                <img src="${memory.src}" alt="${memory.caption}" loading="lazy">
+                <span class="memory-zoom"><i class="fas fa-search-plus"></i></span>
+                <div class="memory-caption">${memory.caption}</div>
+            `;
+
+            // แตะเพื่อดูรูปเต็มจอ
+            card.addEventListener('click', () => {
+                openFullscreen(memory.src);
+            });
+
+            grid.appendChild(card);
+        });
+    }
+
+    buildMemories();
+
+    /* ================================================================
+       7. SURPRISE BUTTON HANDLER
+       เมื่อกดปุ่ม "เปิดเซอร์ไพรส์"
+       ================================================================ */
+    let isSurpriseOpened = false;
+
+    btnSurprise.addEventListener('click', function(e) {
+        if (isSurpriseOpened) return;
+        isSurpriseOpened = true;
+
+        // Ripple effect บนปุ่ม
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        this.appendChild(ripple);
+
+        // ซ่อนหน้าต้อนรับ
+        setTimeout(() => {
+            welcomeScreen.classList.add('hidden');
+        }, 300);
+
+        // แสดงเนื้อหาหลัก
+        setTimeout(() => {
+            mainContent.classList.add('visible');
+            welcomeScreen.style.display = 'none';
+            floatingButtons.classList.add('visible');
+        }, 1000);
+
+        // เล่นเพลง (ถ้าเบราว์เซอร์อนุญาต)
+        bgMusic.play().then(() => {
+            isMusicPlaying = true;
+            btnMusic.classList.add('active');
+            showToast('🎵 เล่นเพลงแล้ว');
+        }).catch(() => {
+            showToast('แตะปุ่มเพลงเพื่อเล่น 🎵');
+        });
+
+        // เริ่มเอฟเฟกต์ต่าง ๆ
+        setTimeout(() => {
+            startFireworks();
+            startConfetti();
+        }, 800);
+
+        setTimeout(startTypewriter, 1500);
+
+        startFloatingHearts();
+
+        // เริ่ม Counter
+        updateCounter();
+        setInterval(updateCounter, 1000);
+    });
+
+    /* ================================================================
+       8. TYPEWRITER EFFECT
+       พิมพ์ข้อความทีละตัวอักษร
+       ================================================================ */
+    let typewriterRunning = false;
+
+    function startTypewriter() {
+        if (typewriterRunning) return;
+        typewriterRunning = true;
+
+        const textEl = document.getElementById('typewriter-text');
+        const cursorEl = document.getElementById('typewriter-cursor');
+
+        // ใช้ spread operator เพื่อจัดการ emoji ได้ถูกต้อง
+        const chars = [...TYPEWRITER_MESSAGE];
+        let index = 0;
+
+        function type() {
+            if (index < chars.length) {
+                const char = chars[index];
+
+                if (char === '\n') {
+                    textEl.appendChild(document.createElement('br'));
+                } else {
+                    textEl.appendChild(document.createTextNode(char));
+                }
+
+                index++;
+
+                // ความเร็วพิมพ์แตกต่างตามประเภทตัวอักษร
+                let delay = 45;
+                if (char === ' ') delay = 25;
+                if (char === '\n') delay = 150;
+                if (char === '🤍') delay = 300;
+                if (char === ',') delay = 80;
+                if (char === '.') delay = 100;
+
+                setTimeout(type, delay);
+            } else {
+                // พิมพ์เสร็จ
+                setTimeout(() => {
+                    cursorEl.style.display = 'none';
+                }, 2000);
+            }
+        }
+
+        type();
+    }
+
+    /* ================================================================
+       9. FIREWORKS (Canvas Particle System)
+       เอฟเฟกต์พลุเมื่อกดเปิดเซอร์ไพรส์
+       ================================================================ */
+    let fireworksParticles = [];
+    let fireworksRunning = false;
+
+    // ปรับขนาด Canvas
+    function resizeFireworksCanvas() {
+        fireworksCanvas.width = window.innerWidth;
+        fireworksCanvas.height = window.innerHeight;
+    }
+
+    // คลาส Particle สำหรับพลุ
+    class FireworkParticle {
+        constructor(x, y, color) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 6 + 2;
+            this.vx = Math.cos(angle) * speed;
+            this.vy = Math.sin(angle) * speed;
+            this.alpha = 1;
+            this.decay = Math.random() * 0.015 + 0.008;
+            this.size = Math.random() * 3 + 1;
+            this.trail = [];
+        }
+
+        update() {
+            // เก็บ trail
+            this.trail.push({ x: this.x, y: this.y, alpha: this.alpha });
+            if (this.trail.length > 5) this.trail.shift();
+
+            this.x += this.vx;
+            this.y += this.vy;
+            this.vy += 0.04; // แรงโน้มถ่วง
+            this.alpha -= this.decay;
+            this.vx *= 0.99;
+            this.vy *= 0.99;
+        }
+
+        draw(ctx) {
+            // วาด trail
+            this.trail.forEach((t, i) => {
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, t.alpha * 0.3);
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(t.x, t.y, this.size * 0.5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            });
+
+            // วาด particle หลัก
+            ctx.save();
+            ctx.globalAlpha = Math.max(0, this.alpha);
+            ctx.fillStyle = this.color;
+            ctx.shadowColor = this.color;
+            ctx.shadowBlur = 6;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+    }
+
+    // สร้างพลุที่จุด (x, y)
+    function createFirework(x, y) {
+        const colors = ['#FF8FAB', '#FFD6E0', '#D4A843', '#F0D78C', '#FFFFFF', '#E8587A', '#FFB6C1', '#FFC0CB'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const count = 50 + Math.floor(Math.random() * 30);
+
+        for (let i = 0; i < count; i++) {
+            fireworksParticles.push(new FireworkParticle(x, y, color));
+        }
+    }
+
+    // Animation loop สำหรับพลุ
+    function animateFireworks() {
+        if (!fireworksRunning && fireworksParticles.length === 0) return;
+
+        fCtx.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+
+        fireworksParticles = fireworksParticles.filter(p => p.alpha > 0);
+
+        fireworksParticles.forEach(p => {
+            p.update();
+            p.draw(fCtx);
+        });
+
+        requestAnimationFrame(animateFireworks);
+    }
+
+    // เริ่มเอฟเฟกต์พลุ
+    function startFireworks() {
+        resizeFireworksCanvas();
+        fireworksRunning = true;
+        animateFireworks();
+
+        // พลุรอบแรก (5 ดอก)
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                createFirework(
+                    randomRange(fireworksCanvas.width * 0.1, fireworksCanvas.width * 0.9),
+                    randomRange(fireworksCanvas.height * 0.1, fireworksCanvas.height * 0.5)
+                );
+            }, i * 400);
+        }
+
+        // พลุต่อเนื่อง
+        const interval = setInterval(() => {
+            if (!fireworksRunning) {
+                clearInterval(interval);
+                return;
+            }
+            createFirework(
+                randomRange(fireworksCanvas.width * 0.1, fireworksCanvas.width * 0.9),
+                randomRange(fireworksCanvas.height * 0.1, fireworksCanvas.height * 0.5)
+            );
+        }, 1500);
+
+        // หยุดพลุหลัง 12 วินาที
+        setTimeout(() => {
+            fireworksRunning = false;
+        }, 12000);
+    }
+
+    /* ================================================================
+       10. CONFETTI (Canvas)
+       เอฟเฟกต์กระดาษโปรย
+       ================================================================ */
+    let confettiParticles = [];
+    let confettiRunning = false;
+
+    function resizeConfettiCanvas() {
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+    }
+
+    class ConfettiPiece {
+        constructor() {
+            this.x = Math.random() * confettiCanvas.width;
+            this.y = -10;
+            this.size = Math.random() * 8 + 4;
+            this.color = ['#FF8FAB', '#FFD6E0', '#D4A843', '#F0D78C', '#FFFFFF', '#E8587A'][Math.floor(Math.random() * 6)];
+            this.vx = randomRange(-1, 1);
+            this.vy = Math.random() * 3 + 2;
+            this.rotation = Math.random() * 360;
+            this.rotationSpeed = randomRange(-5, 5);
+            this.alpha = 1;
+            this.shape = Math.floor(Math.random() * 3); // 0=rect, 1=circle, 2=triangle
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.vy += 0.02;
+            this.rotation += this.rotationSpeed;
+            this.vx += randomRange(-0.1, 0.1); // พัดลม
+
+            if (this.y > confettiCanvas.height + 20) {
+                this.alpha = 0;
+            }
+        }
+
+        draw(ctx) {
+            if (this.alpha <= 0) return;
+            ctx.save();
+            ctx.globalAlpha = this.alpha;
+            ctx.fillStyle = this.color;
+            ctx.translate(this.x, this.y);
+            ctx.rotate((this.rotation * Math.PI) / 180);
+
+            if (this.shape === 0) {
+                ctx.fillRect(-this.size / 2, -this.size / 4, this.size, this.size / 2);
+            } else if (this.shape === 1) {
+                ctx.beginPath();
+                ctx.arc(0, 0, this.size / 3, 0, Math.PI * 2);
+                ctx.fill();
+            } else {
+                ctx.beginPath();
+                ctx.moveTo(0, -this.size / 2);
+                ctx.lineTo(this.size / 2, this.size / 2);
+                ctx.lineTo(-this.size / 2, this.size / 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            ctx.restore();
+        }
+    }
+
+    function animateConfetti() {
+        if (!confettiRunning && confettiParticles.length === 0) return;
+
+        cCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+        confettiParticles = confettiParticles.filter(p => p.alpha > 0);
+
+        confettiParticles.forEach(p => {
+            p.update();
+            p.draw(cCtx);
+        });
+
+        requestAnimationFrame(animateConfetti);
+    }
+
+    function startConfetti() {
+        resizeConfettiCanvas();
+        confettiRunning = true;
+        animateConfetti();
+
+        // สร้าง confetti ชุดแรก
+        for (let i = 0; i < 80; i++) {
+            setTimeout(() => {
+                confettiParticles.push(new ConfettiPiece());
+            }, i * 30);
+        }
+
+        // สร้าง confetti ต่อเนื่อง
+        const interval = setInterval(() => {
+            if (!confettiRunning) {
+                clearInterval(interval);
+                return;
+            }
+            for (let i = 0; i < 5; i++) {
+                confettiParticles.push(new ConfettiPiece());
+            }
+        }, 300);
+
+        // หยุดหลัง 10 วินาที
+        setTimeout(() => {
+            confettiRunning = false;
+        }, 10000);
+    }
+
+    /* ================================================================
+       11. FLOATING HEARTS
+       หัวใจลอยทั่วทั้งหน้าจอ
+       ================================================================ */
+    let heartsInterval = null;
+
+    function createFloatingHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('floating-heart');
+
+        const hearts = ['♥', '❤', '♡'];
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+        const size = Math.random() * 1.2 + 0.6;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 6 + 6;
+        const delay = Math.random() * 2;
+
+        heart.style.left = left + 'vw';
+        heart.style.bottom = '-5vh';
+        heart.style.fontSize = size + 'rem';
+        heart.style.animationDuration = duration + 's';
+        heart.style.animationDelay = delay + 's';
+
+        const colors = ['#FF8FAB', '#FFD6E0', '#E8587A', '#D4A843', '#F0D78C'];
+        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+        document.body.appendChild(heart);
+
+        // ลบหัวใจเมื่อ animation จบ
+        setTimeout(() => {
+            heart.remove();
+        }, (duration + delay) * 1000 + 100);
+    }
+
+    function startFloatingHearts() {
+        // สร้างหัวใจชุดแรก
+        for (let i = 0; i < 8; i++) {
+            setTimeout(createFloatingHeart, i * 400);
+        }
+
+        // สร้างหัวใจต่อเนื่อง
+        heartsInterval = setInterval(createFloatingHeart, 1200);
+    }
+
+    /* ================================================================
+       12. GALLERY SWIPER
+       สไลด์รูปภาพแบบ Coverflow
+       ================================================================ */
+    const gallerySwiper = new Swiper('.gallery-swiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        initialSlide: Math.floor(GALLERY_IMAGES.length / 2),
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        keyboard: {
+            enabled: true,
+        },
+    });
+
+    /* ================================================================
+       13. FULLSCREEN IMAGE VIEWER
+       แตะรูปเพื่อดูเต็มจอ
+       ================================================================ */
+    let currentViewerIndex = 0;
+
+    function openFullscreen(src) {
+        // หา index ของรูป
+        currentViewerIndex = ALL_IMAGES.indexOf(src);
+        if (currentViewerIndex === -1) currentViewerIndex = 0;
+
+        fullscreenImg.src = src;
+        fullscreenViewer.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        updateViewerCounter();
+    }
+
+    function closeFullscreen() {
+        fullscreenViewer.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function updateViewerCounter() {
+        viewerCounter.textContent = `${currentViewerIndex + 1} / ${ALL_IMAGES.length}`;
+    }
+
+    function viewerNavigate(direction) {
+        currentViewerIndex += direction;
+        if (currentViewerIndex < 0) currentViewerIndex = ALL_IMAGES.length - 1;
+        if (currentViewerIndex >= ALL_IMAGES.length) currentViewerIndex = 0;
+
+        fullscreenImg.style.opacity = '0';
+        fullscreenImg.style.transform = 'scale(0.95)';
+
+        setTimeout(() => {
+            fullscreenImg.src = ALL_IMAGES[currentViewerIndex];
+            fullscreenImg.style.opacity = '1';
+            fullscreenImg.style.transform = 'scale(1)';
+            updateViewerCounter();
+        }, 200);
+    }
+
+    // Transition สำหรับรูป
+    fullscreenImg.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+    // ปุ่มปิด
+    document.getElementById('viewer-close').addEventListener('click', closeFullscreen);
+
+    // ปุ่มเลื่อนรูป
+    document.getElementById('viewer-prev').addEventListener('click', (e) => {
+        e.stopPropagation();
+        viewerNavigate(-1);
+    });
+
+    document.getElementById('viewer-next').addEventListener('click', (e) => {
+        e.stopPropagation();
+        viewerNavigate(1);
+    });
+
+    // คลิกพื้นหลังเพื่อปิด
+    fullscreenViewer.addEventListener('click', (e) => {
+        if (e.target === fullscreenViewer) {
+            closeFullscreen();
+        }
+    });
+
+    // ปุ่มลูกศรบนคีย์บอร์ด
+    document.addEventListener('keydown', (e) => {
+        if (!fullscreenViewer.classList.contains('active')) return;
+
+        if (e.key === 'Escape') closeFullscreen();
+        if (e.key === 'ArrowLeft') viewerNavigate(-1);
+        if (e.key === 'ArrowRight') viewerNavigate(1);
+    });
+
+    // Swipe สำหรับมือถือ
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    fullscreenViewer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    fullscreenViewer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                viewerNavigate(1); // Swipe left = next
+            } else {
+                viewerNavigate(-1); // Swipe right = prev
+            }
+        }
+    }, { passive: true });
+
+    /* ================================================================
+       14. RELATIONSHIP COUNTER
+       นับเวลาที่อยู่ด้วยกันแบบเรียลไทม์
+       ================================================================ */
+    function updateCounter() {
+        const now = new Date();
+        const diff = now - RELATIONSHIP_START;
+
+        if (diff < 0) {
+            document.getElementById('counter-days').textContent = '0';
+            document.getElementById('counter-hours').textContent = '00';
+            document.getElementById('counter-minutes').textContent = '00';
+            document.getElementById('counter-seconds').textContent = '00';
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const daysEl = document.getElementById('counter-days');
+        const hoursEl = document.getElementById('counter-hours');
+        const minutesEl = document.getElementById('counter-minutes');
+        const secondsEl = document.getElementById('counter-seconds');
+
+        daysEl.textContent = days.toLocaleString();
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
+
+        // Tick animation สำหรับวินาที
+        secondsEl.classList.add('tick');
+        setTimeout(() => secondsEl.classList.remove('tick'), 300);
+    }
+
+    /* ================================================================
+       15. FLOATING BUTTONS
+       ปุ่มลอยต่าง ๆ
+       ================================================================ */
+
+    // 15.1 เปิด/ปิดเพลง
+    const btnMusic = document.getElementById('btn-music');
+    let isMusicPlaying = false;
+
+    btnMusic.addEventListener('click', () => {
+        if (isMusicPlaying) {
+            bgMusic.pause();
+            btnMusic.classList.remove('active');
+            isMusicPlaying = false;
+            showToast('ปิดเพลงแล้ว');
+        } else {
+            bgMusic.play().then(() => {
+                btnMusic.classList.add('active');
+                isMusicPlaying = true;
+                showToast('🎵 เล่นเพลงแล้ว');
+            }).catch(() => {
+                showToast('ไม่สามารถเล่นเพลงได้ ลองแตะอีกครั้ง');
+            });
+        }
+    });
+
+    // 15.2 เล่นวิดีโอ
+    document.getElementById('btn-video').addEventListener('click', () => {
+        const videoSection = document.getElementById('video-section');
+        videoSection.scrollIntoView({ behavior: 'smooth' });
+
+        setTimeout(() => {
+            const video = document.getElementById('birthday-video');
+            if (video) {
+                video.play().catch(() => {
+                    showToast('ไม่สามารถเล่นวิดีโอได้');
+                });
+            } else {
+                showToast('ยังไม่มีวิดีโอ');
+            }
+        }, 800);
+    });
+
+    // 15.3 แชร์เว็บไซต์
+    document.getElementById('btn-share').addEventListener('click', () => {
+        if (navigator.share) {
+            navigator.share({
+                title: '🤍 Happy 20th Birthday My Love 🤍',
+                text: 'เซอร์ไพรส์วันเกิดพิเศษสำหรับคนพิเศษ 💕',
+                url: window.location.href,
+            }).catch(() => {});
+        } else {
+            // Fallback: คัดลอกลิงก์
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast('📋 คัดลอกลิงก์เรียบร้อยแล้ว!');
+            }).catch(() => {
+                showToast('ไม่สามารถแชร์ได้');
+            });
+        }
+    });
+
+    // 15.4 กลับขึ้นด้านบน
+    document.getElementById('btn-top').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ================================================================
+       16. SCROLL PROGRESS BAR
+       แถบแสดงความคืบหน้า
+       ================================================================ */
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        scrollProgress.style.width = scrollPercent + '%';
+    }, { passive: true });
+
+    /* ================================================================
+       17. SCROLL REVEAL
+       แสดง element เมื่อเลื่อนมาถึง
+       ================================================================ */
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    /* ================================================================
+       18. SCROLL-BASED EFFECTS
+       เอฟเฟกต์ที่เปลี่ยนตามการเลื่อน
+       ================================================================ */
+    let lastScrollY = 0;
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        // แสดงปุ่มลอยเมื่อเลื่อนลง
+        if (scrollY > 300) {
+            floatingButtons.classList.add('visible');
+        }
+
+        // เพิ่มหัวใจเมื่อเลื่อนมาถึง closing section
+        const closingSection = document.getElementById('closing-section');
+        if (closingSection) {
+            const rect = closingSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0 && scrollY > lastScrollY) {
+                if (Math.random() < 0.2) {
+                    createFloatingHeart();
+                }
+            }
+        }
+
+        lastScrollY = scrollY;
+    }, { passive: true });
+
+    /* ================================================================
+       19. WINDOW RESIZE HANDLER
+       ปรับขนาด Canvas เมื่อหน้าจอเปลี่ยน
+       ================================================================ */
+    window.addEventListener('resize', () => {
+        resizeFireworksCanvas();
+        resizeConfettiCanvas();
+    });
+
+    /* ================================================================
+       20. INITIALIZATION
+       เริ่มต้นระบบ
+       ================================================================ */
+    resizeFireworksCanvas();
+    resizeConfettiCanvas();
+    updateCounter();
+    setInterval(updateCounter, 1000);
+
+    </script>
+</body>
+</html>
